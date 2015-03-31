@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">机器人</string>
+    <string name="app_holder">temp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="msg_press_back_to_exit">再按一次返回键退出应用</string>
+    <string name="empty">这里空荡荡</string>
+    <string name="loading">正在加载...</string>
+    <string name="network_error">网络连接异常</string>
+    <string name="album_name">周末游</string>
+    <string name="text_place_holder">holder</string>
+    <string name="select_all">TODO</string>
+    <string name="delete">TODO</string>
+    <string name="all_tag">全部标签</string>
+    <string name="all_type">全部类型</string>
+
+    <!-- 首页 -->
+    <string name="tab_home">首页</string>
+    <string name="tab_travel">出游</string>
+    <string name="tab_my">我的</string>
+    <string name="all_tags">全部标签</string>
+    <string name="buy_now">立即预定</string>
+
+</resources>

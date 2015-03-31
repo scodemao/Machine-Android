@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- actionBar backgroud color -->
+    <color name="actionbar_bg_color">#67BAFF</color>
+    <!-- activity backgound coloc -->
+    <color name="activity_content_color">#FFFFFF</color>
+    <!-- url link color -->
+    <color name="link_color">#5374B8</color>
+
+    <!--  -->
+    <!--  -->
+
+    <color name="detail_text_color">#BBBBBB</color>
+    <color name="primary_dark">#fafafa</color>
+    <color name="font_gray">#999999</color>
+    <color name="white">#FFFFFF</color>
+    <color name="font_dark">#555555</color>
+    <color name="font_highlighted">#67BAFF</color>
+    <color name="focus_light">#10000000</color>
+    <color name="pager_sliding_tab_bg_pressed">#6633B5E5</color>
+    <color name="color_gray">#ebebeb</color>
+
+</resources>
