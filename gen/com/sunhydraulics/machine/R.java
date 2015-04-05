@@ -40,15 +40,16 @@ public final class R {
     }
     public static final class id {
         public static final int imageView1=0x7f080001;
+        public static final int key=0x7f080002;
+        public static final int searchbtn=0x7f080003;
         public static final int splash_fake_img=0x7f080000;
-        public static final int textView1=0x7f080002;
     }
     public static final class layout {
         public static final int act_splash=0x7f030000;
         public static final int activity_main=0x7f030001;
     }
     public static final class raw {
-        public static final int doc20150312=0x7f040000;
+        public static final int detail=0x7f040000;
     }
     public static final class string {
         public static final int album_name=0x7f06000b;
