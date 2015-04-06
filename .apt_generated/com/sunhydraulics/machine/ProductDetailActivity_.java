@@ -6,29 +6,29 @@
 package com.sunhydraulics.machine;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.EditText;
-import android.widget.ListView;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.sunhydraulics.machine.R.id;
 import com.sunhydraulics.machine.R.layout;
-import com.sunhydraulics.machine.preferences.MyPref_;
-import org.androidannotations.api.BackgroundExecutor;
+import com.sunhydraulics.machine.model.ProductInfo;
 import org.androidannotations.api.SdkVersionHelper;
 import org.androidannotations.api.builder.ActivityIntentBuilder;
 import org.androidannotations.api.view.HasViews;
 import org.androidannotations.api.view.OnViewChangedListener;
 import org.androidannotations.api.view.OnViewChangedNotifier;
 
-public final class MainActivity_
-    extends MainActivity
+public final class ProductDetailActivity_
+    extends ProductDetailActivity
     implements HasViews, OnViewChangedListener
 {
 
     private final OnViewChangedNotifier onViewChangedNotifier_ = new OnViewChangedNotifier();
+    public final static String PRODUCT_INFO_EXTRA = "ProductInfo";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,12 +36,12 @@ public final class MainActivity_
         init_(savedInstanceState);
         super.onCreate(savedInstanceState);
         OnViewChangedNotifier.replaceNotifier(previousNotifier);
-        setContentView(layout.activity_main);
+        setContentView(layout.layout_product_detail_view);
     }
 
     private void init_(Bundle savedInstanceState) {
-        mPref = new MyPref_(this);
         OnViewChangedNotifier.registerOnViewChangedListener(this);
+        injectExtras_();
     }
 
     @Override
@@ -62,16 +62,16 @@ public final class MainActivity_
         onViewChangedNotifier_.notifyViewChanged(this);
     }
 
-    public static MainActivity_.IntentBuilder_ intent(Context context) {
-        return new MainActivity_.IntentBuilder_(context);
+    public static ProductDetailActivity_.IntentBuilder_ intent(Context context) {
+        return new ProductDetailActivity_.IntentBuilder_(context);
     }
 
-    public static MainActivity_.IntentBuilder_ intent(android.app.Fragment fragment) {
-        return new MainActivity_.IntentBuilder_(fragment);
+    public static ProductDetailActivity_.IntentBuilder_ intent(android.app.Fragment fragment) {
+        return new ProductDetailActivity_.IntentBuilder_(fragment);
     }
 
-    public static MainActivity_.IntentBuilder_ intent(android.support.v4.app.Fragment supportFragment) {
-        return new MainActivity_.IntentBuilder_(supportFragment);
+    public static ProductDetailActivity_.IntentBuilder_ intent(android.support.v4.app.Fragment supportFragment) {
+        return new ProductDetailActivity_.IntentBuilder_(supportFragment);
     }
 
     @Override
@@ -84,62 +84,45 @@ public final class MainActivity_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        listView = ((ListView) hasViews.findViewById(id.listView));
-        editText = ((EditText) hasViews.findViewById(id.key));
-        {
-            View view = hasViews.findViewById(id.searchbtn);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        MainActivity_.this.onSearchClick();
-                    }
-
-                }
-                );
-            }
-        }
+        titleView = ((TextView) hasViews.findViewById(id.titleView));
+        detailView = ((TextView) hasViews.findViewById(id.detailView));
+        productimage = ((ImageView) hasViews.findViewById(id.productimage));
         init();
     }
 
-    @Override
-    public void readDetailFile(final Context context) {
-        BackgroundExecutor.execute(new BackgroundExecutor.Task("", 0, "") {
-
-
-            @Override
-            public void execute() {
-                try {
-                    MainActivity_.super.readDetailFile(context);
-                } catch (Throwable e) {
-                    Thread.getDefaultUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), e);
-                }
+    private void injectExtras_() {
+        Bundle extras_ = getIntent().getExtras();
+        if (extras_!= null) {
+            if (extras_.containsKey(PRODUCT_INFO_EXTRA)) {
+                productInfo = extras_.getParcelable(PRODUCT_INFO_EXTRA);
             }
-
         }
-        );
+    }
+
+    @Override
+    public void setIntent(Intent newIntent) {
+        super.setIntent(newIntent);
+        injectExtras_();
     }
 
     public static class IntentBuilder_
-        extends ActivityIntentBuilder<MainActivity_.IntentBuilder_>
+        extends ActivityIntentBuilder<ProductDetailActivity_.IntentBuilder_>
     {
 
         private android.app.Fragment fragment_;
         private android.support.v4.app.Fragment fragmentSupport_;
 
         public IntentBuilder_(Context context) {
-            super(context, MainActivity_.class);
+            super(context, ProductDetailActivity_.class);
         }
 
         public IntentBuilder_(android.app.Fragment fragment) {
-            super(fragment.getActivity(), MainActivity_.class);
+            super(fragment.getActivity(), ProductDetailActivity_.class);
             fragment_ = fragment;
         }
 
         public IntentBuilder_(android.support.v4.app.Fragment fragment) {
-            super(fragment.getActivity(), MainActivity_.class);
+            super(fragment.getActivity(), ProductDetailActivity_.class);
             fragmentSupport_ = fragment;
         }
 
@@ -154,6 +137,10 @@ public final class MainActivity_
                     super.startForResult(requestCode);
                 }
             }
+        }
+
+        public ProductDetailActivity_.IntentBuilder_ productInfo(ProductInfo productInfo) {
+            return super.extra(PRODUCT_INFO_EXTRA, productInfo);
         }
 
     }
