@@ -11,11 +11,11 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.sunhydraulics.machine.R.id;
 import com.sunhydraulics.machine.R.layout;
 import com.sunhydraulics.machine.model.ProductInfo;
+import com.sunhydraulics.machine.view.RatioImageView;
 import org.androidannotations.api.SdkVersionHelper;
 import org.androidannotations.api.builder.ActivityIntentBuilder;
 import org.androidannotations.api.view.HasViews;
@@ -84,9 +84,9 @@ public final class ProductDetailActivity_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        titleView = ((TextView) hasViews.findViewById(id.titleView));
         detailView = ((TextView) hasViews.findViewById(id.detailView));
-        productimage = ((ImageView) hasViews.findViewById(id.productimage));
+        titleView = ((TextView) hasViews.findViewById(id.titleView));
+        productimage = ((RatioImageView) hasViews.findViewById(id.productimage));
         init();
     }
 

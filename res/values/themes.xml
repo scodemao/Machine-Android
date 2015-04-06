@@ -5,7 +5,9 @@
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
-    <style name="AppTheme" parent="@android:style/Theme.Holo.Light"></style>
+    <style name="AppTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:homeAsUpIndicator">@drawable/navbar_back</item>
+    </style>
 
     <style name="AppTheme.Fullscreen" parent="@style/AppTheme">
         <item name="android:windowActionBar">false</item>

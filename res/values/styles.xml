@@ -7,6 +7,12 @@
         <item name="android:textColor">@color/font_dark</item>
     </style>
 
+    <style name="DetailStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+        <item name="android:textColor">@color/font_dark</item>
+    </style>
+
     <style name="ItemStyle">
         <item name="android:textSize">18sp</item>
         <item name="android:lineSpacingExtra">0dp</item>

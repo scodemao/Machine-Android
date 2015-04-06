@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">机器人</string>
+    <string name="app_name">SUN</string>
     <string name="app_holder">temp</string>
     <string name="hello_world">Hello world!</string>
     <string name="msg_press_back_to_exit">再按一次返回键退出应用</string>
@@ -21,5 +21,18 @@
     <string name="tab_my">我的</string>
     <string name="all_tags">全部标签</string>
     <string name="buy_now">立即预定</string>
+    <string name="action_search">查找</string>
+    <string name="action_add">添加</string>
+    <string name="menu_group_chat">发起群聊</string>
+    <string name="menu_feedback">意见反馈</string>
+    <string name="menu_addfriend">添加朋友</string>
+    <string name="menu_scan">扫一扫</string>
+    <string name="tab_contact">通讯录</string>
+    <string name="tab_found">发现</string>
+    <string name="tab_me">我</string>
+    <!--  -->
+    <string name="tab_search">搜索</string>
+    <string name="tab_index">索引</string>
+    <string name="tab_feedback">反馈</string>
 
 </resources>

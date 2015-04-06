@@ -7,16 +7,12 @@ package com.sunhydraulics.machine;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.EditText;
-import android.widget.ListView;
 import com.sunhydraulics.machine.R.id;
 import com.sunhydraulics.machine.R.layout;
-import com.sunhydraulics.machine.preferences.MyPref_;
-import org.androidannotations.api.BackgroundExecutor;
 import org.androidannotations.api.SdkVersionHelper;
 import org.androidannotations.api.builder.ActivityIntentBuilder;
 import org.androidannotations.api.view.HasViews;
@@ -40,7 +36,6 @@ public final class MainActivity_
     }
 
     private void init_(Bundle savedInstanceState) {
-        mPref = new MyPref_(this);
         OnViewChangedNotifier.registerOnViewChangedListener(this);
     }
 
@@ -84,42 +79,8 @@ public final class MainActivity_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        listView = ((ListView) hasViews.findViewById(id.listView));
-        editText = ((EditText) hasViews.findViewById(id.key));
-        {
-            View view = hasViews.findViewById(id.searchbtn);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        MainActivity_.this.onSearchClick();
-                    }
-
-                }
-                );
-            }
-        }
+        mViewPager = ((ViewPager) hasViews.findViewById(id.id_viewpager));
         init();
-    }
-
-    @Override
-    public void readDetailFile(final Context context) {
-        BackgroundExecutor.execute(new BackgroundExecutor.Task("", 0, "") {
-
-
-            @Override
-            public void execute() {
-                try {
-                    MainActivity_.super.readDetailFile(context);
-                } catch (Throwable e) {
-                    Thread.getDefaultUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), e);
-                }
-            }
-
-        }
-        );
     }
 
     public static class IntentBuilder_

@@ -15,23 +15,25 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"
             android:layout_marginRight="18dp"
+            android:layout_marginTop="8dp"
             android:text="titleView" />
 
-        <ImageView
+        <com.sunhydraulics.machine.view.RatioImageView
             android:id="@+id/productimage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="18dp"
-            android:layout_marginRight="18dp"
-            android:src="@android:drawable/alert_light_frame" />
+            android:layout_height="100dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp" />
 
         <TextView
             android:id="@+id/detailView"
+            style="@style/DetailStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"
             android:layout_marginRight="18dp"
             android:layout_marginTop="18dp"
+            android:autoLink="web|email|phone"
             android:text="detailView" />
     </LinearLayout>
 

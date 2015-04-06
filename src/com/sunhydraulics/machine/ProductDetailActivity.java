@@ -1,24 +1,35 @@
 package com.sunhydraulics.machine;
 
+import java.io.File;
+
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.Extra;
 import org.androidannotations.annotations.ViewById;
 
-import com.sunhydraulics.machine.model.ProductInfo;
-
-import android.support.v4.app.FragmentActivity;
-import android.widget.ImageView;
+import android.graphics.Bitmap;
+import android.view.View;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.sunhydraulics.machine.model.ProductInfo;
+import com.sunhydraulics.machine.utils.ImageLoaderUtils;
+import com.sunhydraulics.machine.utils.StorageUtils;
+import com.sunhydraulics.machine.view.RatioImageView;
+
+/**
+ * @author maoweiwei
+ * 
+ */
 @EActivity(R.layout.layout_product_detail_view)
-public class ProductDetailActivity extends FragmentActivity {
+public class ProductDetailActivity extends BaseBackActivity {
 
 	@ViewById(R.id.titleView)
 	public TextView titleView;
 
 	@ViewById(R.id.productimage)
-	public ImageView productimage;
+	public RatioImageView productimage;
 
 	@ViewById(R.id.detailView)
 	public TextView detailView;
@@ -28,7 +39,46 @@ public class ProductDetailActivity extends FragmentActivity {
 
 	@AfterViews
 	void init() {
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setDisplayShowTitleEnabled(true);
+		getActionBar().setDisplayUseLogoEnabled(true);
+		getActionBar().setDisplayShowHomeEnabled(false);
 		if (productInfo != null) {
+			getActionBar().setTitle(productInfo.getName());
+
+			File file = new File(StorageUtils.getDefaultCacheDir(this),
+					productInfo.getName() + ".png");
+
+			ImageLoaderUtils.displayPic(file.toString(), productimage,
+					new ImageLoadingListener() {
+
+						@Override
+						public void onLoadingStarted(String arg0, View arg1) {
+						}
+
+						@Override
+						public void onLoadingFailed(String arg0, View arg1,
+								FailReason arg2) {
+						}
+
+						@Override
+						public void onLoadingComplete(String arg0, View arg1,
+								Bitmap bitmap) {
+
+							if (bitmap != null && !bitmap.isRecycled()) {
+								productimage.setWHRatio((float) bitmap
+										.getWidth()
+										/ (float) bitmap.getHeight());
+								productimage.requestLayout();
+							}
+
+						}
+
+						@Override
+						public void onLoadingCancelled(String arg0, View arg1) {
+						}
+					});
+
 			titleView.setText(productInfo.getName());
 			detailView.setText(productInfo.getDesc());
 		}
