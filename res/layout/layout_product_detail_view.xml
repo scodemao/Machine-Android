@@ -33,8 +33,7 @@
             android:layout_marginLeft="18dp"
             android:layout_marginRight="18dp"
             android:layout_marginTop="18dp"
-            android:autoLink="web|email|phone"
-            android:text="detailView" />
+            android:autoLink="web|email|phone" />
     </LinearLayout>
 
 </ScrollView>

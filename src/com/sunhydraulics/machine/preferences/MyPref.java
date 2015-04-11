@@ -6,5 +6,8 @@ import org.androidannotations.annotations.sharedpreferences.SharedPref.Scope;
 @SharedPref(value = Scope.UNIQUE)
 public interface MyPref {
 	boolean isLoadDetailDataFinished();
+	boolean isLoadPicDataFinished();
+	
+	
 
 }

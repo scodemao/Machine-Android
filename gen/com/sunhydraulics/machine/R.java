@@ -42,21 +42,23 @@ containing a value of this type.
         public static final int text_size=0x7f010003;
     }
     public static final class color {
+        public static final int actionBarBg=0x7f050021;
         /**  activity backgound coloc 
          */
         public static final int activity_content_color=0x7f050000;
         public static final int aviary_circle_light=0x7f05001a;
         public static final int color_gray=0x7f050019;
+        public static final int content_bg=0x7f05001c;
         public static final int content_color=0x7f050003;
         public static final int detail_text_color=0x7f050011;
         /**  listview 分割线 颜色 
          */
-        public static final int divider_color=0x7f05001c;
+        public static final int divider_color=0x7f05001d;
         public static final int focus_light=0x7f050017;
         public static final int font_dark=0x7f050015;
         public static final int font_gray=0x7f050013;
         public static final int font_highlighted=0x7f050016;
-        public static final int goods_header_bg=0x7f05001f;
+        public static final int goods_header_bg=0x7f050020;
         public static final int light_white=0x7f05001b;
         public static final int line_color=0x7f050001;
         /**  url link color 
@@ -88,10 +90,10 @@ containing a value of this type.
         /**  Window color 
          */
         public static final int myWindowBackground=0x7f050006;
-        public static final int normal_text_color=0x7f05001d;
+        public static final int normal_text_color=0x7f05001e;
         public static final int pager_sliding_tab_bg_pressed=0x7f050018;
         public static final int primary_dark=0x7f050012;
-        public static final int select_text_color=0x7f05001e;
+        public static final int select_text_color=0x7f05001f;
         public static final int selected_gray=0x7f05000b;
         public static final int white=0x7f050014;
     }
@@ -101,55 +103,68 @@ containing a value of this type.
         public static final int actionbar_search_icon=0x7f020002;
         public static final int back_default=0x7f020003;
         public static final int back_meizu=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int ic_menu_allfriends=0x7f020006;
-        public static final int ic_menu_emoticons=0x7f020007;
-        public static final int ic_menu_friendslist=0x7f020008;
-        public static final int ic_menu_start_conversation=0x7f020009;
-        public static final int logo=0x7f02000a;
-        public static final int men_scan_icon=0x7f02000b;
-        public static final int menu_add_icon=0x7f02000c;
-        public static final int menu_feedback_icon=0x7f02000d;
-        public static final int menu_group_chat_icon=0x7f02000e;
-        public static final int navbar_back=0x7f02000f;
-        public static final int tab_address_normal=0x7f020010;
-        public static final int tab_bg=0x7f020011;
-        public static final int tab_find_frd_normal=0x7f020012;
-        public static final int tab_settings_normal=0x7f020013;
-        public static final int tab_weixin_normal=0x7f020014;
+        public static final int bg_group=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int ic_menu_allfriends=0x7f020007;
+        public static final int ic_menu_emoticons=0x7f020008;
+        public static final int ic_menu_friendslist=0x7f020009;
+        public static final int ic_menu_start_conversation=0x7f02000a;
+        public static final int logo=0x7f02000b;
+        public static final int logo_nav=0x7f02000c;
+        public static final int logo_nva=0x7f02000d;
+        public static final int men_scan_icon=0x7f02000e;
+        public static final int menu_add_icon=0x7f02000f;
+        public static final int menu_feedback_icon=0x7f020010;
+        public static final int menu_group_chat_icon=0x7f020011;
+        public static final int navbar_back=0x7f020012;
+        public static final int tab_address_normal=0x7f020013;
+        public static final int tab_bg=0x7f020014;
+        public static final int tab_find_frd_normal=0x7f020015;
+        public static final int tab_settings_normal=0x7f020016;
+        public static final int tab_weixin_normal=0x7f020017;
     }
     public static final class id {
-        public static final int action_add_friend=0x7f09000f;
-        public static final int action_feedback=0x7f090011;
-        public static final int action_group_chat=0x7f09000e;
-        public static final int action_scan=0x7f090010;
-        public static final int action_search=0x7f09000d;
-        public static final int detailView=0x7f090008;
-        public static final int id_indicator_one=0x7f090003;
-        public static final int id_indicator_three=0x7f090005;
-        public static final int id_indicator_two=0x7f090004;
-        public static final int id_viewpager=0x7f090002;
-        public static final int imageView1=0x7f090001;
-        public static final int itemview=0x7f090009;
-        public static final int key=0x7f09000a;
-        public static final int listView=0x7f09000c;
-        public static final int productimage=0x7f090007;
-        public static final int searchbtn=0x7f09000b;
-        public static final int splash_fake_img=0x7f090000;
-        public static final int titleView=0x7f090006;
+        public static final int action_add_friend=0x7f090013;
+        public static final int action_feedback=0x7f090015;
+        public static final int action_group_chat=0x7f090012;
+        public static final int action_scan=0x7f090014;
+        public static final int action_search=0x7f090011;
+        public static final int detailView=0x7f090006;
+        public static final int gv_gridview=0x7f090007;
+        public static final int id_indicator_one=0x7f090002;
+        public static final int id_indicator_three=0x7f090004;
+        public static final int id_indicator_two=0x7f090003;
+        public static final int id_viewpager=0x7f090001;
+        public static final int imageView1=0x7f090000;
+        public static final int itemview=0x7f090008;
+        public static final int key=0x7f09000e;
+        public static final int listView=0x7f09000b;
+        public static final int loadingview=0x7f090010;
+        public static final int productimage=0x7f09000a;
+        public static final int progressBar1=0x7f09000d;
+        public static final int ratioImageView=0x7f090005;
+        public static final int searchbtn=0x7f09000f;
+        public static final int textView1=0x7f09000c;
+        public static final int titleView=0x7f090009;
     }
     public static final class layout {
         public static final int act_splash=0x7f030000;
         public static final int activity_main=0x7f030001;
-        public static final int layout_product_detail_view=0x7f030002;
-        public static final int layout_product_item_view=0x7f030003;
-        public static final int search_main=0x7f030004;
+        public static final int layout_feedback_view=0x7f030002;
+        public static final int layout_gridview=0x7f030003;
+        public static final int layout_product_cell=0x7f030004;
+        public static final int layout_product_detail_view=0x7f030005;
+        public static final int layout_product_item_view=0x7f030006;
+        public static final int layout_product_list=0x7f030007;
+        public static final int loading_view=0x7f030008;
+        public static final int search_main=0x7f030009;
     }
     public static final class menu {
         public static final int main=0x7f080000;
     }
     public static final class raw {
         public static final int detail=0x7f040000;
+        public static final int template=0x7f040001;
     }
     public static final class string {
         public static final int action_add=0x7f060017;
@@ -192,6 +207,8 @@ containing a value of this type.
         public static final int versionName=0x7f060002;
     }
     public static final class style {
+        public static final int ActionBar_Solid=0x7f070005;
+        public static final int ActionBar_TitleText=0x7f070006;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -201,7 +218,7 @@ containing a value of this type.
         public static final int AppTheme_Fullscreen=0x7f070004;
         public static final int DetailStyle=0x7f070001;
         public static final int ItemStyle=0x7f070002;
-        public static final int NoActionBar=0x7f070005;
+        public static final int NoActionBar=0x7f070007;
         public static final int TitleStyle=0x7f070000;
     }
     public static final class styleable {

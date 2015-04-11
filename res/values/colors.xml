@@ -40,11 +40,13 @@
     <color name="color_gray">#ebebeb</color>
     <color name="aviary_circle_light">#BBBBBB</color>
     <color name="light_white">#aaFFFFFF</color>
+    <color name="content_bg">#fafafa</color>
 
     <!-- listview 分割线 颜色 -->
     <color name="divider_color">#EAEAEA</color>
     <color name="normal_text_color">#76A6FD</color>
     <color name="select_text_color">#FFFFFF</color>
     <color name="goods_header_bg">#fafafa</color>
+    <color name="actionBarBg">#23314E</color>
 
 </resources>

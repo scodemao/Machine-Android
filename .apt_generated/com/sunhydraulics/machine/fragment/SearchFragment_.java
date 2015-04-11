@@ -5,8 +5,10 @@
 
 package com.sunhydraulics.machine.fragment;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,12 +17,14 @@ import android.widget.EditText;
 import android.widget.ListView;
 import com.sunhydraulics.machine.R.layout;
 import com.sunhydraulics.machine.preferences.MyPref_;
-import org.androidannotations.api.BackgroundExecutor;
 import org.androidannotations.api.builder.FragmentBuilder;
 import org.androidannotations.api.view.HasViews;
 import org.androidannotations.api.view.OnViewChangedListener;
 import org.androidannotations.api.view.OnViewChangedNotifier;
 
+@SuppressLint({
+    "HandlerLeak"
+})
 public final class SearchFragment_
     extends com.sunhydraulics.machine.fragment.SearchFragment
     implements HasViews, OnViewChangedListener
@@ -28,6 +32,7 @@ public final class SearchFragment_
 
     private final OnViewChangedNotifier onViewChangedNotifier_ = new OnViewChangedNotifier();
     private View contentView_;
+    private Handler handler_ = new Handler(Looper.getMainLooper());
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,6 +82,7 @@ public final class SearchFragment_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
+        loadingView = hasViews.findViewById(com.sunhydraulics.machine.R.id.loadingview);
         listView = ((ListView) hasViews.findViewById(com.sunhydraulics.machine.R.id.listView));
         editText = ((EditText) hasViews.findViewById(com.sunhydraulics.machine.R.id.key));
         {
@@ -98,35 +104,13 @@ public final class SearchFragment_
     }
 
     @Override
-    public void readDetailFile(final Context context) {
-        BackgroundExecutor.execute(new BackgroundExecutor.Task("", 0, "") {
+    public void showInfo(final String msg) {
+        handler_.post(new Runnable() {
 
 
             @Override
-            public void execute() {
-                try {
-                    SearchFragment_.super.readDetailFile(context);
-                } catch (Throwable e) {
-                    Thread.getDefaultUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), e);
-                }
-            }
-
-        }
-        );
-    }
-
-    @Override
-    public void loadZip() {
-        BackgroundExecutor.execute(new BackgroundExecutor.Task("", 0, "") {
-
-
-            @Override
-            public void execute() {
-                try {
-                    SearchFragment_.super.loadZip();
-                } catch (Throwable e) {
-                    Thread.getDefaultUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), e);
-                }
+            public void run() {
+                SearchFragment_.super.showInfo(msg);
             }
 
         }

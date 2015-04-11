@@ -10,7 +10,6 @@ import java.util.zip.ZipInputStream;
 
 import android.content.Context;
 
-
 /**
  * @author maoweiwei
  * 
@@ -27,19 +26,22 @@ public class ZipManager {
 		return _instance;
 	}
 
-	public synchronized void loadZip(Context context) {
+	public synchronized boolean loadZip(Context context) {
 		if (null == context) {
-			return;
+			return true;
 		}
 		mContext = context;
 
-		// loadZipData();
+		boolean hasError = true;
 
 		try {
 			unZip(mContext, "pics.zip",
 					StorageUtils.getDefaultCacheDir(mContext).toString(), false);
+			hasError = false;
 		} catch (IOException e) {
+			hasError = true;
 		}
+		return hasError;
 	}
 
 	public static void unZip(Context context, String assetName,

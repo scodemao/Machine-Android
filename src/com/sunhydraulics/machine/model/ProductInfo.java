@@ -36,7 +36,6 @@ public class ProductInfo extends EntityBase implements Parcelable {
 
 	@Override
 	public int describeContents() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -47,7 +46,6 @@ public class ProductInfo extends EntityBase implements Parcelable {
 			ProductInfo a = new ProductInfo();
 			a.name = source.readString();
 			a.desc = source.readString();
-
 			return a;
 		}
 

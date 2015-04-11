@@ -9,11 +9,6 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
-import com.sunhydraulics.machine.fragment.FeedbackFragment;
-import com.sunhydraulics.machine.fragment.IndexFragment;
-import com.sunhydraulics.machine.fragment.SearchFragment_;
-import com.sunhydraulics.machine.view.ChangeColorIconWithText;
-
 import android.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -29,6 +24,15 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.sunhydraulics.machine.fragment.FeedbackFragment_;
+import com.sunhydraulics.machine.fragment.IndexFragment_;
+import com.sunhydraulics.machine.fragment.SearchFragment_;
+import com.sunhydraulics.machine.view.ChangeColorIconWithText;
+
+/**
+ * @author maoweiwei
+ * 
+ */
 @EActivity(R.layout.activity_main)
 public class MainActivity extends FragmentActivity implements OnClickListener,
 		OnPageChangeListener {
@@ -38,8 +42,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 	private SectionsPagerAdapter mSectionsPagerAdapter;
 
 	private SearchFragment_ searchFragment;
-	private IndexFragment indexFragment;
-	private FeedbackFragment feedbackFragment;
+	private IndexFragment_ indexFragment;
+	private FeedbackFragment_ feedbackFragment;
 
 	private List<ChangeColorIconWithText> mTabIndicators = new ArrayList<ChangeColorIconWithText>();
 
@@ -48,7 +52,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
-		actionBar.setIcon(R.drawable.ic_launcher);
+		actionBar.setIcon(R.drawable.logo_nav);
 		actionBar.setDisplayUseLogoEnabled(false);
 		actionBar.setDisplayShowCustomEnabled(true);
 		actionBar.setDisplayShowTitleEnabled(false);
@@ -58,8 +62,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 		setOverflowButtonAlways();
 
 		searchFragment = new SearchFragment_();
-		indexFragment = new IndexFragment();
-		feedbackFragment = new FeedbackFragment();
+		indexFragment = new IndexFragment_();
+		feedbackFragment = new FeedbackFragment_();
 
 		initView();
 

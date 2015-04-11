@@ -1,8 +1,6 @@
 package com.sunhydraulics.machine.view;
 
-import com.sunhydraulics.machine.R;
-import com.sunhydraulics.machine.R.styleable;
-
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -22,6 +20,9 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
+import com.sunhydraulics.machine.R;
+
+@SuppressLint("DrawAllocation")
 public class ChangeColorIconWithText extends View {
 	private int mColor = 0xFF45C01A;
 	private Bitmap mIconBitmap;

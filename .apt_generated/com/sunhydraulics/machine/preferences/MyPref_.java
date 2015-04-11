@@ -29,6 +29,10 @@ public final class MyPref_
         return booleanField("isLoadDetailDataFinished", false);
     }
 
+    public BooleanPrefField isLoadPicDataFinished() {
+        return booleanField("isLoadPicDataFinished", false);
+    }
+
     public final static class MyPrefEditor_
         extends EditorHelper<MyPref_.MyPrefEditor_>
     {
@@ -40,6 +44,10 @@ public final class MyPref_
 
         public BooleanPrefEditorField<MyPref_.MyPrefEditor_> isLoadDetailDataFinished() {
             return booleanField("isLoadDetailDataFinished");
+        }
+
+        public BooleanPrefEditorField<MyPref_.MyPrefEditor_> isLoadPicDataFinished() {
+            return booleanField("isLoadPicDataFinished");
         }
 
     }

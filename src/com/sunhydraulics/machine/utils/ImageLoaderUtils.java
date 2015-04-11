@@ -30,6 +30,7 @@ public class ImageLoaderUtils {
 	public static DisplayImageOptions getDisplayImageOptions(
 			boolean cacheInMemeory, boolean cacheOnDisc,
 			BitmapDisplayer displayer) {
+		@SuppressWarnings("deprecation")
 		DisplayImageOptions.Builder builder = new DisplayImageOptions.Builder()
 				.resetViewBeforeLoading(true).cacheInMemory(cacheInMemeory)
 				.imageScaleType(ImageScaleType.IN_SAMPLE_INT)
