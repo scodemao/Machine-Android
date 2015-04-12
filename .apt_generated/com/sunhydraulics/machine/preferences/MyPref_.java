@@ -29,6 +29,10 @@ public final class MyPref_
         return booleanField("isLoadDetailDataFinished", false);
     }
 
+    public BooleanPrefField isLoadIndexDataFinished() {
+        return booleanField("isLoadIndexDataFinished", false);
+    }
+
     public BooleanPrefField isLoadPicDataFinished() {
         return booleanField("isLoadPicDataFinished", false);
     }
@@ -44,6 +48,10 @@ public final class MyPref_
 
         public BooleanPrefEditorField<MyPref_.MyPrefEditor_> isLoadDetailDataFinished() {
             return booleanField("isLoadDetailDataFinished");
+        }
+
+        public BooleanPrefEditorField<MyPref_.MyPrefEditor_> isLoadIndexDataFinished() {
+            return booleanField("isLoadIndexDataFinished");
         }
 
         public BooleanPrefEditorField<MyPref_.MyPrefEditor_> isLoadPicDataFinished() {

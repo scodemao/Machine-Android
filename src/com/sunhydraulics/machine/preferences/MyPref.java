@@ -7,6 +7,7 @@ import org.androidannotations.annotations.sharedpreferences.SharedPref.Scope;
 public interface MyPref {
 	boolean isLoadDetailDataFinished();
 	boolean isLoadPicDataFinished();
+	boolean isLoadIndexDataFinished();
 	
 	
 

@@ -11,6 +11,7 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -25,11 +26,14 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.lidroid.xutils.exception.DbException;
 import com.sunhydraulics.machine.ProductListViewActivity_;
 import com.sunhydraulics.machine.R;
 import com.sunhydraulics.machine.adapter.AbstractListAdapter;
+import com.sunhydraulics.machine.app.AppApplication_;
 import com.sunhydraulics.machine.model.CategoryChildItem;
 import com.sunhydraulics.machine.model.CategoryItem;
+import com.sunhydraulics.machine.preferences.MyPref_;
 import com.sunhydraulics.machine.utils.MyArrayList;
 import com.sunhydraulics.machine.utils.StringUtils;
 import com.sunhydraulics.machine.utils.ToastUtil;
@@ -41,9 +45,13 @@ public class IndexFragment extends Fragment implements OnItemClickListener {
 	public GridView gv_gridview;
 	CategoryListAdapter mAdapter;
 
+	@Pref
+	MyPref_ mPref;
+
 	private static final String BLOCK_ONE = "*";// 一级目录
 	private static final String BLOCK_TWO = "**";// 二级目录
 	private static final String BLOCK_THREE = "***";// 三级目录
+	private static final String BLOCK_FOUR = "****";// 四级目录
 
 	private static final String BLOCK_TAG = "$$$$";// 一个部分的结束
 
@@ -63,9 +71,13 @@ public class IndexFragment extends Fragment implements OnItemClickListener {
 				int code = msg.arg1;
 				if (code == 0) {
 					showInfo("数据解析失败");
+					mPref.edit().isLoadIndexDataFinished().put(false).apply();
 				} else {
 					showInfo("数据解析成功");
-					insertData((ArrayList<CategoryItem>) msg.obj);
+					@SuppressWarnings("unchecked")
+					MyArrayList<CategoryItem> level1Items = (MyArrayList<CategoryItem>) msg.obj;
+					insertData(level1Items);
+					mPref.edit().isLoadIndexDataFinished().put(true).apply();
 				}
 			}
 				break;
@@ -99,7 +111,9 @@ public class IndexFragment extends Fragment implements OnItemClickListener {
 		if (mHanlder == null) {
 			mHanlder = new Handler(mWorkerThread.getLooper());
 		}
-
+		if (mPref.isLoadIndexDataFinished().getOr(false)) {
+		} else {
+		}
 		mHanlder.post(loadCategoryRunnable);
 
 	}
@@ -127,8 +141,6 @@ public class IndexFragment extends Fragment implements OnItemClickListener {
 
 			/****/
 			MyArrayList<CategoryItem> level1Items = new MyArrayList<CategoryItem>();// 一级目录
-			MyArrayList<CategoryChildItem> level2Items = new MyArrayList<CategoryChildItem>();// 二级目录
-
 			try {
 				InputStream inputStream = mContext.getAssets().open(
 						"template.txt");
@@ -138,24 +150,12 @@ public class IndexFragment extends Fragment implements OnItemClickListener {
 
 				while ((line = br.readLine()) != null) {
 					if (line.trim().equalsIgnoreCase(BLOCK_TAG)) {
-						// 上部分结束
-						// 下部分开始
-						if (!StringUtils.isEmpty(level1Name)) {
-							CategoryItem item = new CategoryItem();
-							item.init();
-							item.setName(level1Name);
-							level1Items.add(item);
-							item.getChildList().addAll(level2Items);
-						}
-
 						level1Name = null;
 						level2Name = null;
 						level3Name = null;
 
-						level2Items.clear();
-
-					} else if (line.startsWith(BLOCK_THREE)) {
-						line = line.replace(BLOCK_THREE, "");
+					} else if (line.startsWith(BLOCK_FOUR)) {// 最多只有四级目录
+						line = line.replace(BLOCK_FOUR, "");
 						level3Name = line;
 						CategoryChildItem childItem = new CategoryChildItem();
 						childItem.init();
@@ -179,14 +179,47 @@ public class IndexFragment extends Fragment implements OnItemClickListener {
 							}
 						}
 
-						/* 合并数据 和 清理数据 */
-						CategoryChildItem categoryChildItem = level2Items
+						CategoryChildItem item = level1Items.getlastOnject()
+								.getChildList().getlastOnject().getChildList()
 								.getlastOnject();
-						if (categoryChildItem != null) {
-							categoryChildItem.getChildList().add(childItem);
-						}
-						/* 合并数据 */
+						if (item.getChildList() == null)
+							item.init();
 
+						item.getChildList().add(childItem);
+
+					} else if (line.startsWith(BLOCK_THREE)) {
+						line = line.replace(BLOCK_THREE, "");
+						level3Name = line;
+
+						String[] itemArr = level3Name.split(";;");
+						if (itemArr.length > 0) {
+							// over
+							CategoryChildItem childItem = new CategoryChildItem();
+							childItem.init();
+							childItem.setName(itemArr[0]);
+
+							if (itemArr.length == 2) {
+								String strChild = itemArr[1];
+								String[] childs = strChild.split(",");
+								int length = childs.length;
+								for (int i = 0; i < length; i++) {
+									String inSt = childs[i];
+									if (!StringUtils.isEmpty(inSt)) {
+										CategoryChildItem itn = new CategoryChildItem();
+										itn.setName(inSt);
+										childItem.getChildList().add(itn);
+									}
+								}
+							}
+
+							CategoryChildItem item = level1Items
+									.getlastOnject().getChildList()
+									.getlastOnject();
+							if (item.getChildList() == null)
+								item.init();
+							item.getChildList().add(childItem);// 添加三级目录
+
+						}
 					} else if (line.startsWith(BLOCK_TWO)) {
 						line = line.replace(BLOCK_TWO, "");
 						level2Name = line;
@@ -194,11 +227,21 @@ public class IndexFragment extends Fragment implements OnItemClickListener {
 						CategoryChildItem childItem = new CategoryChildItem();
 						childItem.init();
 						childItem.setName(level2Name);
-						level2Items.add(childItem);
+
+						CategoryItem item = level1Items.getlastOnject();
+						if (item != null) {
+							if (item.getChildList() == null)
+								item.init();
+							item.getChildList().add(childItem);// 添加耳机目录
+						}
 
 					} else if (line.startsWith(BLOCK_ONE)) {
 						line = line.replace(BLOCK_ONE, "").trim();
 						level1Name = line;
+						CategoryItem item = new CategoryItem();
+						item.init();
+						item.setName(level1Name);
+						level1Items.add(item);// 一级目录
 					}
 				}
 			} catch (IOException e) {

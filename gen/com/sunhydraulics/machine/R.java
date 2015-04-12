@@ -42,60 +42,60 @@ containing a value of this type.
         public static final int text_size=0x7f010003;
     }
     public static final class color {
-        public static final int actionBarBg=0x7f050021;
+        public static final int actionBarBg=0x7f040021;
         /**  activity backgound coloc 
          */
-        public static final int activity_content_color=0x7f050000;
-        public static final int aviary_circle_light=0x7f05001a;
-        public static final int color_gray=0x7f050019;
-        public static final int content_bg=0x7f05001c;
-        public static final int content_color=0x7f050003;
-        public static final int detail_text_color=0x7f050011;
+        public static final int activity_content_color=0x7f040000;
+        public static final int aviary_circle_light=0x7f04001a;
+        public static final int color_gray=0x7f040019;
+        public static final int content_bg=0x7f04001c;
+        public static final int content_color=0x7f040003;
+        public static final int detail_text_color=0x7f040011;
         /**  listview 分割线 颜色 
          */
-        public static final int divider_color=0x7f05001d;
-        public static final int focus_light=0x7f050017;
-        public static final int font_dark=0x7f050015;
-        public static final int font_gray=0x7f050013;
-        public static final int font_highlighted=0x7f050016;
-        public static final int goods_header_bg=0x7f050020;
-        public static final int light_white=0x7f05001b;
-        public static final int line_color=0x7f050001;
+        public static final int divider_color=0x7f04001d;
+        public static final int focus_light=0x7f040017;
+        public static final int font_dark=0x7f040015;
+        public static final int font_gray=0x7f040013;
+        public static final int font_highlighted=0x7f040016;
+        public static final int goods_header_bg=0x7f040020;
+        public static final int light_white=0x7f04001b;
+        public static final int line_color=0x7f040001;
         /**  url link color 
          */
-        public static final int link_color=0x7f050002;
-        public static final int list_item_bg_normal_color=0x7f05000f;
-        public static final int list_item_bg_select_color=0x7f05000e;
-        public static final int list_item_location_color=0x7f050010;
-        public static final int list_item_normal_color=0x7f05000d;
+        public static final int link_color=0x7f040002;
+        public static final int list_item_bg_normal_color=0x7f04000f;
+        public static final int list_item_bg_select_color=0x7f04000e;
+        public static final int list_item_location_color=0x7f040010;
+        public static final int list_item_normal_color=0x7f04000d;
         /**   
          */
-        public static final int list_item_select_color=0x7f05000c;
+        public static final int list_item_select_color=0x7f04000c;
         /**  设置像是CheckBox的颜色 
          */
-        public static final int myAccentColor=0x7f050007;
-        public static final int myDrawerBackground=0x7f050009;
+        public static final int myAccentColor=0x7f040007;
+        public static final int myDrawerBackground=0x7f040009;
         /**  底部导航颜色 
          */
-        public static final int myNavigationColor=0x7f05000a;
+        public static final int myNavigationColor=0x7f04000a;
         /**  Actionbar color 
          */
-        public static final int myPrimaryColor=0x7f050004;
+        public static final int myPrimaryColor=0x7f040004;
         /**  状态栏底色 
          */
-        public static final int myPrimaryDarkColor=0x7f050005;
+        public static final int myPrimaryDarkColor=0x7f040005;
         /**  ActionBar 文字颜色 
          */
-        public static final int myTextPrimaryColor=0x7f050008;
+        public static final int myTextPrimaryColor=0x7f040008;
         /**  Window color 
          */
-        public static final int myWindowBackground=0x7f050006;
-        public static final int normal_text_color=0x7f05001e;
-        public static final int pager_sliding_tab_bg_pressed=0x7f050018;
-        public static final int primary_dark=0x7f050012;
-        public static final int select_text_color=0x7f05001f;
-        public static final int selected_gray=0x7f05000b;
-        public static final int white=0x7f050014;
+        public static final int myWindowBackground=0x7f040006;
+        public static final int normal_text_color=0x7f04001e;
+        public static final int pager_sliding_tab_bg_pressed=0x7f040018;
+        public static final int primary_dark=0x7f040012;
+        public static final int select_text_color=0x7f04001f;
+        public static final int selected_gray=0x7f04000b;
+        public static final int white=0x7f040014;
     }
     public static final class drawable {
         public static final int ab_background=0x7f020000;
@@ -124,28 +124,28 @@ containing a value of this type.
         public static final int tab_weixin_normal=0x7f020017;
     }
     public static final class id {
-        public static final int action_add_friend=0x7f090013;
-        public static final int action_feedback=0x7f090015;
-        public static final int action_group_chat=0x7f090012;
-        public static final int action_scan=0x7f090014;
-        public static final int action_search=0x7f090011;
-        public static final int detailView=0x7f090006;
-        public static final int gv_gridview=0x7f090007;
-        public static final int id_indicator_one=0x7f090002;
-        public static final int id_indicator_three=0x7f090004;
-        public static final int id_indicator_two=0x7f090003;
-        public static final int id_viewpager=0x7f090001;
-        public static final int imageView1=0x7f090000;
-        public static final int itemview=0x7f090008;
-        public static final int key=0x7f09000e;
-        public static final int listView=0x7f09000b;
-        public static final int loadingview=0x7f090010;
-        public static final int productimage=0x7f09000a;
-        public static final int progressBar1=0x7f09000d;
-        public static final int ratioImageView=0x7f090005;
-        public static final int searchbtn=0x7f09000f;
-        public static final int textView1=0x7f09000c;
-        public static final int titleView=0x7f090009;
+        public static final int action_add_friend=0x7f080013;
+        public static final int action_feedback=0x7f080015;
+        public static final int action_group_chat=0x7f080012;
+        public static final int action_scan=0x7f080014;
+        public static final int action_search=0x7f080011;
+        public static final int detailView=0x7f080006;
+        public static final int gv_gridview=0x7f080007;
+        public static final int id_indicator_one=0x7f080002;
+        public static final int id_indicator_three=0x7f080004;
+        public static final int id_indicator_two=0x7f080003;
+        public static final int id_viewpager=0x7f080001;
+        public static final int imageView1=0x7f080000;
+        public static final int itemview=0x7f080008;
+        public static final int key=0x7f08000e;
+        public static final int listView=0x7f08000b;
+        public static final int loadingview=0x7f080010;
+        public static final int productimage=0x7f08000a;
+        public static final int progressBar1=0x7f08000d;
+        public static final int ratioImageView=0x7f080005;
+        public static final int searchbtn=0x7f08000f;
+        public static final int textView1=0x7f08000c;
+        public static final int titleView=0x7f080009;
     }
     public static final class layout {
         public static final int act_splash=0x7f030000;
@@ -160,66 +160,62 @@ containing a value of this type.
         public static final int search_main=0x7f030009;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
-    }
-    public static final class raw {
-        public static final int detail=0x7f040000;
-        public static final int template=0x7f040001;
+        public static final int main=0x7f070000;
     }
     public static final class string {
-        public static final int action_add=0x7f060017;
-        public static final int action_search=0x7f060016;
-        public static final int album_name=0x7f06000b;
-        public static final int all_tag=0x7f06000f;
-        public static final int all_tags=0x7f060014;
-        public static final int all_type=0x7f060010;
-        public static final int app_holder=0x7f060005;
-        public static final int app_name=0x7f060004;
-        public static final int buy_now=0x7f060015;
-        public static final int channel_letter=0x7f060000;
-        public static final int channel_name=0x7f060002;
-        public static final int delete=0x7f06000e;
-        public static final int empty=0x7f060008;
-        public static final int hello_world=0x7f060006;
-        public static final int loading=0x7f060009;
-        public static final int menu_addfriend=0x7f06001a;
-        public static final int menu_feedback=0x7f060019;
-        public static final int menu_group_chat=0x7f060018;
-        public static final int menu_scan=0x7f06001b;
-        public static final int msg_press_back_to_exit=0x7f060007;
-        public static final int network_error=0x7f06000a;
-        public static final int select_all=0x7f06000d;
-        public static final int tab_contact=0x7f06001c;
-        public static final int tab_feedback=0x7f060021;
-        public static final int tab_found=0x7f06001d;
+        public static final int action_add=0x7f050017;
+        public static final int action_search=0x7f050016;
+        public static final int album_name=0x7f05000b;
+        public static final int all_tag=0x7f05000f;
+        public static final int all_tags=0x7f050014;
+        public static final int all_type=0x7f050010;
+        public static final int app_holder=0x7f050005;
+        public static final int app_name=0x7f050004;
+        public static final int buy_now=0x7f050015;
+        public static final int channel_letter=0x7f050000;
+        public static final int channel_name=0x7f050002;
+        public static final int delete=0x7f05000e;
+        public static final int empty=0x7f050008;
+        public static final int hello_world=0x7f050006;
+        public static final int loading=0x7f050009;
+        public static final int menu_addfriend=0x7f05001a;
+        public static final int menu_feedback=0x7f050019;
+        public static final int menu_group_chat=0x7f050018;
+        public static final int menu_scan=0x7f05001b;
+        public static final int msg_press_back_to_exit=0x7f050007;
+        public static final int network_error=0x7f05000a;
+        public static final int select_all=0x7f05000d;
+        public static final int tab_contact=0x7f05001c;
+        public static final int tab_feedback=0x7f050021;
+        public static final int tab_found=0x7f05001d;
         /**  首页 
          */
-        public static final int tab_home=0x7f060011;
-        public static final int tab_index=0x7f060020;
-        public static final int tab_me=0x7f06001e;
-        public static final int tab_my=0x7f060013;
+        public static final int tab_home=0x7f050011;
+        public static final int tab_index=0x7f050020;
+        public static final int tab_me=0x7f05001e;
+        public static final int tab_my=0x7f050013;
         /**   
          */
-        public static final int tab_search=0x7f06001f;
-        public static final int tab_travel=0x7f060012;
-        public static final int text_place_holder=0x7f06000c;
-        public static final int umeng_appkey=0x7f060003;
-        public static final int versionName=0x7f060001;
+        public static final int tab_search=0x7f05001f;
+        public static final int tab_travel=0x7f050012;
+        public static final int text_place_holder=0x7f05000c;
+        public static final int umeng_appkey=0x7f050003;
+        public static final int versionName=0x7f050001;
     }
     public static final class style {
-        public static final int ActionBar_Solid=0x7f070005;
-        public static final int ActionBar_TitleText=0x7f070006;
+        public static final int ActionBar_Solid=0x7f060005;
+        public static final int ActionBar_TitleText=0x7f060006;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
          */
-        public static final int AppTheme=0x7f070003;
-        public static final int AppTheme_Fullscreen=0x7f070004;
-        public static final int DetailStyle=0x7f070001;
-        public static final int ItemStyle=0x7f070002;
-        public static final int NoActionBar=0x7f070007;
-        public static final int TitleStyle=0x7f070000;
+        public static final int AppTheme=0x7f060003;
+        public static final int AppTheme_Fullscreen=0x7f060004;
+        public static final int DetailStyle=0x7f060001;
+        public static final int ItemStyle=0x7f060002;
+        public static final int NoActionBar=0x7f060007;
+        public static final int TitleStyle=0x7f060000;
     }
     public static final class styleable {
         /** Attributes that can be used with a ChangeColorIconWithText.

@@ -1,12 +1,10 @@
 package com.sunhydraulics.machine.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.lidroid.xutils.db.annotation.Column;
+import com.sunhydraulics.machine.utils.MyArrayList;
 
 /**
  * @author maoweiwei
@@ -23,13 +21,13 @@ public class CategoryItem extends EntityBase implements Parcelable {
 	private String name;
 
 	@Column(column = "childList")
-	private List<CategoryChildItem> childList;
+	private MyArrayList<CategoryChildItem> childList;
 
 	@Column(column = "childinfo")
 	private String childinfo;
 
 	public void init() {
-		childList = new ArrayList<CategoryChildItem>();
+		childList = new MyArrayList<CategoryChildItem>();
 	}
 
 	public String getName() {
@@ -60,7 +58,7 @@ public class CategoryItem extends EntityBase implements Parcelable {
 			CategoryItem a = new CategoryItem();
 			a.name = source.readString();
 			a.childinfo = source.readString();
-			List<CategoryChildItem> l = new ArrayList<CategoryChildItem>();
+			MyArrayList<CategoryChildItem> l = new MyArrayList<CategoryChildItem>();
 			source.readTypedList(l, CategoryChildItem.CREATOR);
 			a.childList = l;
 			return a;
@@ -80,11 +78,11 @@ public class CategoryItem extends EntityBase implements Parcelable {
 		dest.writeTypedList(childList);
 	}
 
-	public List<CategoryChildItem> getChildList() {
+	public MyArrayList<CategoryChildItem> getChildList() {
 		return childList;
 	}
 
-	public void setChildList(List<CategoryChildItem> childList) {
+	public void setChildList(MyArrayList<CategoryChildItem> childList) {
 		this.childList = childList;
 	}
 }

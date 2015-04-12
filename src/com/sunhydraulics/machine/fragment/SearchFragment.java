@@ -251,13 +251,13 @@ public class SearchFragment extends Fragment implements OnItemClickListener {
 			if (mContext == null)
 				return;
 
-			InputStream is = mContext.getResources().openRawResource(
-					R.raw.detail);
-			InputStreamReader isr = new InputStreamReader(is);
-			BufferedReader br = new BufferedReader(isr);
-			String line = null;
 			boolean hasError = false;
 			try {
+				InputStream is = mContext.getAssets().open("detail.txt");
+				InputStreamReader isr = new InputStreamReader(is);
+				BufferedReader br = new BufferedReader(isr);
+				String line = null;
+
 				NextData nextData = null;
 				StringBuilder title = new StringBuilder();
 				StringBuilder detail = new StringBuilder();

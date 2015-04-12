@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import com.sunhydraulics.machine.R.layout;
+import com.sunhydraulics.machine.preferences.MyPref_;
 import org.androidannotations.api.builder.FragmentBuilder;
 import org.androidannotations.api.view.HasViews;
 import org.androidannotations.api.view.OnViewChangedListener;
@@ -63,6 +64,7 @@ public final class IndexFragment_
     }
 
     private void init_(Bundle savedInstanceState) {
+        mPref = new MyPref_(getActivity());
         OnViewChangedNotifier.registerOnViewChangedListener(this);
     }
 
