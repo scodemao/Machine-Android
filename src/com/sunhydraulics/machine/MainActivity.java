@@ -28,6 +28,7 @@ import com.sunhydraulics.machine.fragment.FeedbackFragment_;
 import com.sunhydraulics.machine.fragment.IndexFragment_;
 import com.sunhydraulics.machine.fragment.SearchFragment_;
 import com.sunhydraulics.machine.view.ChangeColorIconWithText;
+import com.umeng.update.UmengUpdateAgent;
 
 /**
  * @author maoweiwei
@@ -61,6 +62,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 				WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 		setOverflowButtonAlways();
 
+		UmengUpdateAgent.update(this);
+
 		searchFragment = new SearchFragment_();
 		indexFragment = new IndexFragment_();
 		feedbackFragment = new FeedbackFragment_();
@@ -72,6 +75,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 				getSupportFragmentManager());
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 		mViewPager.setOffscreenPageLimit(3);
+
+		UmengUpdateAgent.update(this);
 
 	}
 

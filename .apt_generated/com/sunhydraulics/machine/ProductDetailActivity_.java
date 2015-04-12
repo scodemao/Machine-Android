@@ -84,9 +84,9 @@ public final class ProductDetailActivity_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
+        titleView = ((TextView) hasViews.findViewById(id.titleView));
         detailView = ((TextView) hasViews.findViewById(id.detailView));
         productimage = ((RatioImageView) hasViews.findViewById(id.productimage));
-        titleView = ((TextView) hasViews.findViewById(id.titleView));
         init();
     }
 

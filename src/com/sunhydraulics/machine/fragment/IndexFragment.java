@@ -30,7 +30,6 @@ import com.sunhydraulics.machine.R;
 import com.sunhydraulics.machine.adapter.AbstractListAdapter;
 import com.sunhydraulics.machine.model.CategoryChildItem;
 import com.sunhydraulics.machine.model.CategoryItem;
-import com.sunhydraulics.machine.model.ProductItem;
 import com.sunhydraulics.machine.utils.MyArrayList;
 import com.sunhydraulics.machine.utils.StringUtils;
 import com.sunhydraulics.machine.utils.ToastUtil;

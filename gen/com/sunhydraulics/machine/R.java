@@ -176,8 +176,8 @@ containing a value of this type.
         public static final int app_holder=0x7f060005;
         public static final int app_name=0x7f060004;
         public static final int buy_now=0x7f060015;
-        public static final int channel_letter=0x7f060001;
-        public static final int channel_name=0x7f060000;
+        public static final int channel_letter=0x7f060000;
+        public static final int channel_name=0x7f060002;
         public static final int delete=0x7f06000e;
         public static final int empty=0x7f060008;
         public static final int hello_world=0x7f060006;
@@ -204,7 +204,7 @@ containing a value of this type.
         public static final int tab_travel=0x7f060012;
         public static final int text_place_holder=0x7f06000c;
         public static final int umeng_appkey=0x7f060003;
-        public static final int versionName=0x7f060002;
+        public static final int versionName=0x7f060001;
     }
     public static final class style {
         public static final int ActionBar_Solid=0x7f070005;

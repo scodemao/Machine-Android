@@ -34,8 +34,8 @@ public final class ProductListViewActivity_
 {
 
     private final OnViewChangedNotifier onViewChangedNotifier_ = new OnViewChangedNotifier();
-    public final static String CATEGORY_CHILD_ITEM_EXTRA = "categoryChildItem";
     public final static String CATEGORY_ITEM_EXTRA = "categoryItem";
+    public final static String CATEGORY_CHILD_ITEM_EXTRA = "categoryChildItem";
     private Handler handler_ = new Handler(Looper.getMainLooper());
 
     @Override
@@ -99,11 +99,11 @@ public final class ProductListViewActivity_
     private void injectExtras_() {
         Bundle extras_ = getIntent().getExtras();
         if (extras_!= null) {
-            if (extras_.containsKey(CATEGORY_CHILD_ITEM_EXTRA)) {
-                categoryChildItem = extras_.getParcelable(CATEGORY_CHILD_ITEM_EXTRA);
-            }
             if (extras_.containsKey(CATEGORY_ITEM_EXTRA)) {
                 categoryItem = extras_.getParcelable(CATEGORY_ITEM_EXTRA);
+            }
+            if (extras_.containsKey(CATEGORY_CHILD_ITEM_EXTRA)) {
+                categoryChildItem = extras_.getParcelable(CATEGORY_CHILD_ITEM_EXTRA);
             }
         }
     }
@@ -162,12 +162,12 @@ public final class ProductListViewActivity_
             }
         }
 
-        public ProductListViewActivity_.IntentBuilder_ categoryChildItem(CategoryChildItem categoryChildItem) {
-            return super.extra(CATEGORY_CHILD_ITEM_EXTRA, categoryChildItem);
-        }
-
         public ProductListViewActivity_.IntentBuilder_ categoryItem(CategoryItem categoryItem) {
             return super.extra(CATEGORY_ITEM_EXTRA, categoryItem);
+        }
+
+        public ProductListViewActivity_.IntentBuilder_ categoryChildItem(CategoryChildItem categoryChildItem) {
+            return super.extra(CATEGORY_CHILD_ITEM_EXTRA, categoryChildItem);
         }
 
     }

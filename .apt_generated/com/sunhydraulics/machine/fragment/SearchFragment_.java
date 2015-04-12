@@ -82,9 +82,9 @@ public final class SearchFragment_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        loadingView = hasViews.findViewById(com.sunhydraulics.machine.R.id.loadingview);
-        listView = ((ListView) hasViews.findViewById(com.sunhydraulics.machine.R.id.listView));
         editText = ((EditText) hasViews.findViewById(com.sunhydraulics.machine.R.id.key));
+        listView = ((ListView) hasViews.findViewById(com.sunhydraulics.machine.R.id.listView));
+        loadingView = hasViews.findViewById(com.sunhydraulics.machine.R.id.loadingview);
         {
             View view = hasViews.findViewById(com.sunhydraulics.machine.R.id.searchbtn);
             if (view!= null) {
