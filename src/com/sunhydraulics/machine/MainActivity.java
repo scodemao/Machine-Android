@@ -7,9 +7,11 @@ import java.util.List;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 import android.app.ActionBar;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -27,6 +29,7 @@ import android.widget.Toast;
 import com.sunhydraulics.machine.fragment.FeedbackFragment_;
 import com.sunhydraulics.machine.fragment.IndexFragment_;
 import com.sunhydraulics.machine.fragment.SearchFragment_;
+import com.sunhydraulics.machine.utils.ToastUtil;
 import com.sunhydraulics.machine.view.ChangeColorIconWithText;
 import com.umeng.update.UmengUpdateAgent;
 
@@ -45,6 +48,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 	private SearchFragment_ searchFragment;
 	private IndexFragment_ indexFragment;
 	private FeedbackFragment_ feedbackFragment;
+
+	private int TIME = 4000;
 
 	private List<ChangeColorIconWithText> mTabIndicators = new ArrayList<ChangeColorIconWithText>();
 
@@ -78,6 +83,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 
 		UmengUpdateAgent.update(this);
 
+		handler.postAtTime(runnable, TIME);
+
 	}
 
 	private void initView() {
@@ -107,6 +114,24 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	Handler handler = new Handler();
+	Runnable runnable = new Runnable() {
+
+		@Override
+		public void run() {
+			try {
+				handler.postDelayed(this, TIME);
+				showInfo("这是测试版，正式版本等最终打包！");
+			} catch (Exception e) {
+			}
+		}
+	};
+
+	@UiThread
+	void showInfo(String msg) {
+		ToastUtil.show(this, msg);
 	}
 
 	/**

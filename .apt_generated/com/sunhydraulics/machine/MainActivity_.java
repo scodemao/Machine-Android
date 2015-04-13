@@ -7,6 +7,8 @@ package com.sunhydraulics.machine;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.View;
@@ -25,6 +27,7 @@ public final class MainActivity_
 {
 
     private final OnViewChangedNotifier onViewChangedNotifier_ = new OnViewChangedNotifier();
+    private Handler handler_ = new Handler(Looper.getMainLooper());
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,6 +84,20 @@ public final class MainActivity_
     public void onViewChanged(HasViews hasViews) {
         mViewPager = ((ViewPager) hasViews.findViewById(id.id_viewpager));
         init();
+    }
+
+    @Override
+    public void showInfo(final String msg) {
+        handler_.post(new Runnable() {
+
+
+            @Override
+            public void run() {
+                MainActivity_.super.showInfo(msg);
+            }
+
+        }
+        );
     }
 
     public static class IntentBuilder_

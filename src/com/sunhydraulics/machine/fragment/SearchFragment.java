@@ -322,7 +322,7 @@ public class SearchFragment extends Fragment implements OnItemClickListener {
 						.getMyDbUtils()
 						.findFirst(
 								Selector.from(ProductInfo.class).where("name",
-										"=", searchKey));
+										"=", searchKey.toUpperCase()));
 			} catch (DbException e) {
 				hasError = true;
 			}
