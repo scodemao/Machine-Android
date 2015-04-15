@@ -26,11 +26,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.TextView;
 
-import com.lidroid.xutils.exception.DbException;
 import com.sunhydraulics.machine.ProductListViewActivity_;
 import com.sunhydraulics.machine.R;
 import com.sunhydraulics.machine.adapter.AbstractListAdapter;
-import com.sunhydraulics.machine.app.AppApplication_;
 import com.sunhydraulics.machine.model.CategoryChildItem;
 import com.sunhydraulics.machine.model.CategoryItem;
 import com.sunhydraulics.machine.preferences.MyPref_;
@@ -93,17 +91,6 @@ public class IndexFragment extends Fragment implements OnItemClickListener {
 
 	@AfterViews
 	void init() {
-		// ArrayList<ProductItem> list = new ArrayList<ProductItem>();
-		// list.add(ProductItem.createProductItem("压力控制阀", 1, true));
-		// list.add(ProductItem.createProductItem("方向阀", 2, true));
-		// list.add(ProductItem.createProductItem("电磁换向阀", 3, true));
-		// list.add(ProductItem.createProductItem("流量阀", 4, true));
-		// list.add(ProductItem.createProductItem("逻辑单元", 5, true));
-		// list.add(ProductItem.createProductItem("特殊功能阀", 6, true));
-		// list.add(ProductItem.createProductItem("负载保持阀", 7, true));
-		// list.add(ProductItem.createProductItem("电比例阀", 8, true));
-		// list.add(ProductItem.createProductItem("线圈", 9, true));
-
 		if (mWorkerThread == null) {
 			mWorkerThread = new HandlerThread("Index Thread");
 			mWorkerThread.start();

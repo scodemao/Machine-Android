@@ -1,6 +1,8 @@
 package com.sunhydraulics.machine;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -9,10 +11,12 @@ import org.androidannotations.annotations.ViewById;
 
 import android.graphics.Bitmap;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.sunhydraulics.machine.model.Photo;
 import com.sunhydraulics.machine.model.ProductInfo;
 import com.sunhydraulics.machine.utils.ImageLoaderUtils;
 import com.sunhydraulics.machine.utils.StorageUtils;
@@ -23,7 +27,8 @@ import com.sunhydraulics.machine.view.RatioImageView;
  * 
  */
 @EActivity(R.layout.layout_product_detail_view)
-public class ProductDetailActivity extends BaseBackActivity {
+public class ProductDetailActivity extends BaseBackActivity implements
+		OnClickListener {
 
 	@ViewById(R.id.titleView)
 	public TextView titleView;
@@ -48,6 +53,9 @@ public class ProductDetailActivity extends BaseBackActivity {
 
 			File file = new File(StorageUtils.getDefaultCacheDir(this),
 					productInfo.getName() + ".png");
+
+			productimage.setTag(file.toString());
+			productimage.setOnClickListener(this);
 
 			ImageLoaderUtils.displayPic(file.toString(), productimage,
 					new ImageLoadingListener() {
@@ -82,5 +90,17 @@ public class ProductDetailActivity extends BaseBackActivity {
 			titleView.setText(productInfo.getName());
 			detailView.setText(productInfo.getDesc());
 		}
+	}
+
+	@Override
+	public void onClick(View v) {
+
+		String imgurl = (String) v.getTag();
+
+		ArrayList<Photo> list = new ArrayList<Photo>();
+		Photo p = new Photo();
+		p.setImageUrl(imgurl);
+		list.add(p);
+		SingleImageActivity_.intent(this).photos(list).start();
 	}
 }
