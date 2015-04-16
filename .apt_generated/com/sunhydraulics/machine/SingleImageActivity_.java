@@ -29,9 +29,9 @@ public final class SingleImageActivity_
 {
 
     private final OnViewChangedNotifier onViewChangedNotifier_ = new OnViewChangedNotifier();
-    public final static String PHOTOS_EXTRA = "photos";
-    public final static String CURRENT_POSITION_EXTRA = "current_position";
     public final static String ONLY_DOWNLOAD_EXTRA = "only_download";
+    public final static String CURRENT_POSITION_EXTRA = "current_position";
+    public final static String PHOTOS_EXTRA = "photos";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -94,14 +94,14 @@ public final class SingleImageActivity_
     private void injectExtras_() {
         Bundle extras_ = getIntent().getExtras();
         if (extras_!= null) {
-            if (extras_.containsKey(PHOTOS_EXTRA)) {
-                photos = extras_.getParcelableArrayList(PHOTOS_EXTRA);
+            if (extras_.containsKey(ONLY_DOWNLOAD_EXTRA)) {
+                onlyDownload = extras_.getBoolean(ONLY_DOWNLOAD_EXTRA);
             }
             if (extras_.containsKey(CURRENT_POSITION_EXTRA)) {
                 currentPosition = extras_.getInt(CURRENT_POSITION_EXTRA);
             }
-            if (extras_.containsKey(ONLY_DOWNLOAD_EXTRA)) {
-                onlyDownload = extras_.getBoolean(ONLY_DOWNLOAD_EXTRA);
+            if (extras_.containsKey(PHOTOS_EXTRA)) {
+                photos = extras_.getParcelableArrayList(PHOTOS_EXTRA);
             }
         }
     }
@@ -146,16 +146,16 @@ public final class SingleImageActivity_
             }
         }
 
-        public SingleImageActivity_.IntentBuilder_ photos(ArrayList<Photo> photos) {
-            return super.extra(PHOTOS_EXTRA, ((Serializable) photos));
+        public SingleImageActivity_.IntentBuilder_ onlyDownload(boolean onlyDownload) {
+            return super.extra(ONLY_DOWNLOAD_EXTRA, onlyDownload);
         }
 
         public SingleImageActivity_.IntentBuilder_ currentPosition(int currentPosition) {
             return super.extra(CURRENT_POSITION_EXTRA, currentPosition);
         }
 
-        public SingleImageActivity_.IntentBuilder_ onlyDownload(boolean onlyDownload) {
-            return super.extra(ONLY_DOWNLOAD_EXTRA, onlyDownload);
+        public SingleImageActivity_.IntentBuilder_ photos(ArrayList<Photo> photos) {
+            return super.extra(PHOTOS_EXTRA, ((Serializable) photos));
         }
 
     }
