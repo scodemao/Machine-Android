@@ -29,8 +29,8 @@ public final class WeekSingleImageFragment_
 
     private final OnViewChangedNotifier onViewChangedNotifier_ = new OnViewChangedNotifier();
     private View contentView_;
-    public final static String PHOTO_ARG = "photo";
     public final static String ONLY_DOWNLOAD_ARG = "only_download";
+    public final static String PHOTO_ARG = "photo";
     private Handler handler_ = new Handler(Looper.getMainLooper());
 
     @Override
@@ -104,11 +104,11 @@ public final class WeekSingleImageFragment_
     private void injectFragmentArguments_() {
         Bundle args_ = getArguments();
         if (args_!= null) {
-            if (args_.containsKey(PHOTO_ARG)) {
-                photo = args_.getParcelable(PHOTO_ARG);
-            }
             if (args_.containsKey(ONLY_DOWNLOAD_ARG)) {
                 onlyDownload = args_.getBoolean(ONLY_DOWNLOAD_ARG);
+            }
+            if (args_.containsKey(PHOTO_ARG)) {
+                photo = args_.getParcelable(PHOTO_ARG);
             }
         }
     }
@@ -157,13 +157,13 @@ public final class WeekSingleImageFragment_
             return fragment_;
         }
 
-        public WeekSingleImageFragment_.FragmentBuilder_ photo(Photo photo) {
-            args.putParcelable(PHOTO_ARG, photo);
+        public WeekSingleImageFragment_.FragmentBuilder_ onlyDownload(boolean onlyDownload) {
+            args.putBoolean(ONLY_DOWNLOAD_ARG, onlyDownload);
             return this;
         }
 
-        public WeekSingleImageFragment_.FragmentBuilder_ onlyDownload(boolean onlyDownload) {
-            args.putBoolean(ONLY_DOWNLOAD_ARG, onlyDownload);
+        public WeekSingleImageFragment_.FragmentBuilder_ photo(Photo photo) {
+            args.putParcelable(PHOTO_ARG, photo);
             return this;
         }
 

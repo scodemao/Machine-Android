@@ -68,10 +68,8 @@ public class IndexFragment extends Fragment implements OnItemClickListener {
 			case 1: {
 				int code = msg.arg1;
 				if (code == 0) {
-					showInfo("数据解析失败");
 					mPref.edit().isLoadIndexDataFinished().put(false).apply();
 				} else {
-					showInfo("数据解析成功");
 					@SuppressWarnings("unchecked")
 					MyArrayList<CategoryItem> level1Items = (MyArrayList<CategoryItem>) msg.obj;
 					insertData(level1Items);

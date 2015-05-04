@@ -90,8 +90,8 @@ public final class ProgressablePhotoView_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        progressBar = ((ProgressBar) hasViews.findViewById(id.progressablePhotoView_progress));
         imageView = ((PhotoView) hasViews.findViewById(id.progressablePhotoView_photo));
+        progressBar = ((ProgressBar) hasViews.findViewById(id.progressablePhotoView_progress));
     }
 
 }

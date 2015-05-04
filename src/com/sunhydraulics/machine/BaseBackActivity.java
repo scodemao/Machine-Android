@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentActivity;
 import android.view.MenuItem;
 
 import com.sunhydraulics.machine.utils.ActivityUtils;
-import com.umeng.analytics.MobclickAgent;
 
 /**
  * @author maoweiwei
@@ -45,12 +44,10 @@ public class BaseBackActivity extends FragmentActivity {
 
 	protected void onResume() {
 		super.onResume();
-		MobclickAgent.onResume(this);
 	}
 
 	protected void onPause() {
 		super.onPause();
-		MobclickAgent.onPause(this);
 	}
 
 	protected void onStop() {
