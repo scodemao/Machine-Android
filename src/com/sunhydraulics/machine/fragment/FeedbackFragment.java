@@ -42,6 +42,7 @@ public class FeedbackFragment extends Fragment {
 		sb.append("\n");
 		sb.append("SunChinaInfo@sunhydraulics.com");
 		sb.append("\n");
+		sb.append("版本号：1.1");
 
 		detailView.setText(sb.toString());
 
