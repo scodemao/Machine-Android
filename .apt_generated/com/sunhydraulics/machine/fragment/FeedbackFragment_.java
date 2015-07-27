@@ -72,8 +72,8 @@ public final class FeedbackFragment_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        detailView = ((TextView) hasViews.findViewById(com.sunhydraulics.machine.R.id.detailView));
         ratioImageView = ((RatioImageView) hasViews.findViewById(com.sunhydraulics.machine.R.id.ratioImageView));
+        detailView = ((TextView) hasViews.findViewById(com.sunhydraulics.machine.R.id.detailView));
         init();
     }
 
